@@ -40,9 +40,9 @@ public class PatientProductRatingServiceImpl implements PatientProductRatingServ
 	@Override
 	public void updateRating(PatientProductRating patientProductRating) {
 		
-		System.out.println("patientProductRating.getId()============="+patientProductRating.getId());
 		PatientProductRating patientProductRatingFromDb = patientProductRatingRepo.findById(patientProductRating.getId()).orElseThrow(() -> new RecordNotFoundException("Rating not Found"));
-		
+		patientProductRatingFromDb.setProductReview(patientProductRating.getProductReview());
+		patientProductRatingFromDb.setStarRating(patientProductRating.getStarRating());
 		PatientProductRating ratingObj = patientProductRatingRepo.save(patientProductRatingFromDb);
 		
 		//update product table also
