@@ -21,6 +21,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +43,7 @@ public class Product {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE }, mappedBy = "products")
 	private Set<Patient> patients = new HashSet<>();
 	
-	@JsonIgnore
+	@JsonManagedReference
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<PatientProductRating> patientProductRating = new ArrayList<>();
 	

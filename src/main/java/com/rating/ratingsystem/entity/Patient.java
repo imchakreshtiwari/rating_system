@@ -22,6 +22,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,6 +44,7 @@ public class Patient {
 			@JoinColumn(name = "product_id") })
 	private Set<Product> products = new HashSet<>();
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<PatientProductRating> patientProductRating = new ArrayList<>();
 	

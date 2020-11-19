@@ -17,6 +17,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 
 @Data
@@ -30,11 +32,13 @@ public class PatientProductRating {
 	
 	private String productReview;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "patient_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Patient patient;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)

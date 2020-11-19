@@ -7,7 +7,6 @@ import com.rating.ratingsystem.entity.PatientProductRating;
 import com.rating.ratingsystem.entity.Product;
 import com.rating.ratingsystem.exception.RecordNotFoundException;
 import com.rating.ratingsystem.repository.PatientProductRatingRepo;
-import com.rating.ratingsystem.repository.ProductRepo;
 import com.rating.ratingsystem.service.PatientProductRatingService;
 import com.rating.ratingsystem.service.ProductService;
 
@@ -16,9 +15,6 @@ public class PatientProductRatingServiceImpl implements PatientProductRatingServ
 
 	@Autowired
 	private PatientProductRatingRepo patientProductRatingRepo;
-	
-	@Autowired
-	private ProductRepo productRepo;
 	
 	@Autowired
 	private ProductService productService;
