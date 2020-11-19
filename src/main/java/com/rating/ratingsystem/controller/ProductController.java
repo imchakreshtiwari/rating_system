@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rating.ratingsystem.dto.ProductDto;
 import com.rating.ratingsystem.entity.Product;
 import com.rating.ratingsystem.service.ProductService;
 
@@ -33,9 +34,9 @@ public class ProductController {
 	}
 	
 	@GetMapping(value = "/product")
-	public List<Product> getAllProduct() {
+	public List<ProductDto> getAllProduct() {
 		
-		List<Product> products = productService.getAllProducts();
+		List<ProductDto> products = productService.getAllProducts();
 		return products;
 	}
 }
