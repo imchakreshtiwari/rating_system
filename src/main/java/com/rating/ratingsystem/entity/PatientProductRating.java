@@ -18,6 +18,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -46,10 +47,12 @@ public class PatientProductRating {
 	
 	private Integer starRating;
 	
+	@JsonIgnore
 	@Column(name = "created_date", nullable = false, updatable = false)
 	@CreationTimestamp
 	private Calendar createdDate;
 
+	@JsonIgnore
 	@UpdateTimestamp
 	private Calendar lastModifiedDate;
 	

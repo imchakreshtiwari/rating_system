@@ -22,6 +22,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
@@ -48,10 +49,12 @@ public class Patient {
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<PatientProductRating> patientProductRating = new ArrayList<>();
 	
+	@JsonIgnore
 	@Column(name = "created_date", nullable = false, updatable = false)
 	@CreationTimestamp
 	private Calendar createdDate;
 
+	@JsonIgnore
 	@UpdateTimestamp
 	private Calendar lastModifiedDate;
 

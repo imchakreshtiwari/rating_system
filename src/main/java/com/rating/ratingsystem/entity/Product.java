@@ -50,10 +50,12 @@ public class Product {
 	private Long ratingCount;
 	private Long averageRating;
 	
+	@JsonIgnore
 	@Column(name = "created_date", nullable = false, updatable = false)
 	@CreationTimestamp
 	private Calendar createdDate;
 
+	@JsonIgnore
 	@UpdateTimestamp
 	private Calendar lastModifiedDate;
 
